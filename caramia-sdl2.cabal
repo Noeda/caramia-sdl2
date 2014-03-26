@@ -1,0 +1,32 @@
+name:                caramia-sdl2
+version:             0.1.0.0
+synopsis:            SDL2 for Caramia
+description:         This package makes it easy to create OpenGL contexts for
+                     Caramia by the use of SDL2.
+homepage:            https://github.com/Noeda/caramia-sdl2/
+license:             MIT
+license-file:        LICENSE
+author:              Mikko Juola
+maintainer:          mikjuo@gmail.com
+copyright:           Copyright (c) 2014 Mikko Juola
+category:            Graphics
+build-type:          Simple
+stability:           not even implemented
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Caramia.SDL2Context
+                       Caramia.Events
+  other-modules:       Caramia.Internal.Error
+
+  build-depends:       base >=4.7 && <5.0.0.0
+                      ,caramia ==0.*
+                      ,sdl2 ==1.*
+                      ,lens ==4.*
+                      ,text ==1.*
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+  default-extensions:  AutoDeriveTypeable, OverloadedStrings
+                      ,FlexibleInstances ,FlexibleContexts, LambdaCase
+                      ,MultiWayIf
+
