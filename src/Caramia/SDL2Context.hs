@@ -103,8 +103,9 @@ runSDL2Context creation action = mask $ \restore -> runInBoundThread $ do
             context <- glCreateContext window
             when (nullPtr == context) throwSDLError
 
-            storeContextLocalData (SDLContextLocal window)
-            finally ?? glDeleteContext context $ giveContext (restore action)
+            finally ?? glDeleteContext context $ giveContext $ do
+                storeContextLocalData (SDLContextLocal window)
+                restore action
 
   where
     moreFlags = (case sizing creation of
@@ -126,6 +127,6 @@ swapBuffers :: IO ()
 swapBuffers = do
     _ <- currentContextID  -- check that we are in a context
     runPendingFinalizers
-    window <- retrieveContextLocalData (error "impossible")
+    SDLContextLocal window <- retrieveContextLocalData (error "impossible")
     glSwapWindow window
 
