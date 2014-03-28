@@ -23,7 +23,6 @@ import Control.Exception
 import Control.Lens
 import Control.Concurrent
 import Control.Monad
-import Control.Applicative
 import Foreign.Ptr
 import Foreign.C.String
 import Data.Typeable
@@ -53,7 +52,7 @@ data ContextCreation = ContextCreation
     }
     deriving ( Eq, Ord, Show, Read, Typeable )
 
-newtype SDLContextLocal = SDLContextLocal { window :: SDL.Window }
+newtype SDLContextLocal = SDLContextLocal SDL.Window
                           deriving ( Typeable )
 
 -- | Simple, windowed context. Resolution is set to 800x600.
