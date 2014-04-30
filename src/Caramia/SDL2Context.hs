@@ -20,7 +20,6 @@ module Caramia.SDL2Context
 import Caramia.Context
 import Caramia.Internal.Error
 import Control.Exception
-import Control.Lens
 import Control.Concurrent
 import Control.Monad
 import Foreign.Ptr
@@ -31,6 +30,9 @@ import System.Environment
 import Graphics.UI.SDL
 import qualified Graphics.UI.SDL as SDL
 import qualified Data.Text as T
+
+(??) :: (a -> b -> c) -> (b -> a -> c)
+(??) = flip
 
 -- | Specifies the resolution and window/fullscreen mode.
 data Sizing =
