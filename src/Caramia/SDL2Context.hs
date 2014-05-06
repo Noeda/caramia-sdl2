@@ -10,6 +10,8 @@ module Caramia.SDL2Context
       runSDL2Context
     , ContextCreation(..)
     , simpleContext
+    -- * Capturing mouse
+    , setMouseCapture
     -- * Swapping
     , swapBuffers
     -- * Exceptions
@@ -130,4 +132,12 @@ swapBuffers = do
     runPendingFinalizers
     SDLContextLocal window <- retrieveContextLocalData (error "impossible")
     glSwapWindow window
+
+-- | Capture or release the mouse.
+setMouseCapture :: Bool    -- ^ Set to true if you want to capture the mouse,
+                           -- false if you want to release it.
+                -> IO ()
+setMouseCapture do_grab = do
+    _ <- currentContextID
+    void $ setRelativeMouseMode do_grab
 
