@@ -14,6 +14,10 @@ build-type:          Simple
 stability:           not even implemented
 cabal-version:       >=1.10
 
+source-repository head
+    type:            git
+    location:        https://github.com/Noeda/caramia-sdl2.git
+
 library
   exposed-modules:     Caramia.SDL2Context
                        Caramia.Events
