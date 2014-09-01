@@ -1,4 +1,6 @@
 dist
 *.trace
 /smoke-test
+.cabal-sandbox/
+cabal.sandbox.config
 
