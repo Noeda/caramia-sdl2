@@ -4,6 +4,8 @@
 -- OpenGL context to Caramia library.
 --
 
+{-# LANGUAGE DeriveDataTypeable, OverloadedStrings #-}
+
 module Caramia.SDL2Context
     (
     -- * Running contexts

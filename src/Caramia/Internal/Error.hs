@@ -1,3 +1,5 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+
 module Caramia.Internal.Error
     ( throwSDLError
     , SDLError(..) )

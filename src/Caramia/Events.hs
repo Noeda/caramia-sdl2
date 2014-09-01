@@ -4,6 +4,8 @@
 -- library.
 --
 
+{-# LANGUAGE LambdaCase #-}
+
 module Caramia.Events
     (
     -- * Getting events.
